@@ -4,4 +4,4 @@ An introductory tutorial on using RStudio for geo-data analysis, covering essent
 
 A [workflowr][] project.
 
-[workflowr]: https://github.com/workflowr/workflowr
+[workflowr]: https://ohm-np.github.io/R_tutorial/
