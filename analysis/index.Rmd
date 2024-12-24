@@ -11,3 +11,4 @@ editor_options:
 ## Table of contents
 
 - [Introduction](Introduction.html)
+- [Getting Started](Getting_Started.html)
