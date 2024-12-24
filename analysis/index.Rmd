@@ -12,3 +12,4 @@ editor_options:
 
 - [Introduction](Introduction.html)
 - [Getting Started](Getting_Started.html)
+- [Understanding Geospatial Data](Understanding_Geospatial_Data.html)
