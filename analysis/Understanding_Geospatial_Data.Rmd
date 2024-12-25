@@ -1,5 +1,5 @@
 ---
-title: "Understanding_Geospatial_Data"
+title: "Understanding Geospatial Data"
 author: "Om P Bhandari"
 date: "2024-12-24"
 output: html_document
@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+<style> p { text-align: justify; } </style>
 
 Geospatial data refers to data that is associated with a specific location on the Earth's surface. This data often includes both geographic coordinates (e.g., latitude and longitude) and information about the features or phenomena at those locations. Understanding geospatial data is essential for performing spatial analysis, as it helps you examine patterns, relationships, and distributions across geographical areas. Geospatial data can be represented in two main forms: **vector data** and **raster data**, each serving different purposes and requiring different approaches for analysis.
 
@@ -44,7 +46,7 @@ The GeoTIFF (.tif) format is a raster data format that stores geospatial informa
 
 These formats, along with the understanding of vector and raster data, provide a solid foundation for conducting geospatial analysis. Depending on the type of data you work with and the analysis you wish to perform, you may choose the appropriate file format to suit your needs. 
 
-However, in this tutorial, we will primarily work with geopackage and tiff.
+However, in this tutorial, we will primarily work with geopackage and tiff format.
 
 
 
