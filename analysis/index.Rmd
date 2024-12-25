@@ -10,7 +10,10 @@ editor_options:
 
 ## Table of contents
 
-- [Introduction](Introduction.html)
-- [Getting Started](Getting_Started.html)
-- [Understanding Geospatial Data](Understanding_Geospatial_Data.html)
-- [Loading Geospatial Data in RStudio](Loading_Geospatial_Data_in_RStudio.html)
+- [INTRODUCTION](Introduction.html)
+
+- [GETTING STARTED](Getting_Started.html)
+
+- [UNDERSTANDING GEOSPATIAL DATA](Understanding_Geospatial_Data.html)
+
+- [LOADING GEOSPATIAL DATA IN RSTUDIO](Loading_Geospatial_Data_in_RStudio.html)
