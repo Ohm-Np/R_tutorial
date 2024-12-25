@@ -513,15 +513,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree26249684e6ad867bfa1f02c6c50994e3cb7ee7c1targetblank2624968a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree35518302bef245481400709754d106d3c041229dtargetblank3551830a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/26249684e6ad867bfa1f02c6c50994e3cb7ee7c1" target="_blank">2624968</a>
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/35518302bef245481400709754d106d3c041229d" target="_blank">3551830</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree26249684e6ad867bfa1f02c6c50994e3cb7ee7c1targetblank2624968a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree35518302bef245481400709754d106d3c041229dtargetblank3551830a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +531,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/26249684e6ad867bfa1f02c6c50994e3cb7ee7c1" target="_blank">2624968</a>.
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/35518302bef245481400709754d106d3c041229d" target="_blank">3551830</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -550,11 +550,11 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  analysis/Loading_Geospatial_Data_in_RStudio.Rmd
+    Untracked:  analysis/Basic_Operations_with_Vector_Data.Rmd
 
 Unstaged changes:
+    Modified:   analysis/Loading_Geospatial_Data_in_RStudio.Rmd
     Modified:   analysis/Understanding_Geospatial_Data.Rmd
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -599,6 +599,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/35518302bef245481400709754d106d3c041229d/analysis/Getting_Started.Rmd" target="_blank">3551830</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+<td>
+wflow_publish("analysis/Getting_Started.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Ohm-Np/R_tutorial/851973fa4aa0fa67dd5e69f48b99550981050b73/docs/Getting_Started.html" target="_blank">851973f</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -683,8 +717,8 @@ data. You’ll also learn about the basic structure of geospatial datasets
 and how to prepare your system for efficient analysis. By the end of
 this chapter, you’ll have everything in place to start working with
 vector and raster data in RStudio.</p>
-<div id="installing-r-and-rstudio" class="section level2">
-<h2>Installing R and RStudio</h2>
+<div id="installing-r-and-rstudio" class="section level3">
+<h3><strong>Installing R and RStudio</strong></h3>
 <p>To begin your geospatial journey in R, you’ll need to install two key
 components: R and RStudio. R is the programming language that powers
 your analysis, while RStudio is a user-friendly integrated development
@@ -706,19 +740,20 @@ website</a>.</li>
 by RStudio Pro.</li>
 </ul>
 </div>
-<div id="installing-required-packages" class="section level2">
-<h2>Installing Required Packages</h2>
+<div id="installing-required-packages" class="section level3">
+<h3><strong>Installing Required Packages</strong></h3>
 <p>Once R and RStudio are installed, the next step is to set up the
-essential R packages for geospatial analysis. Packages like sf, terra,
-and dplyr provide the tools needed to handle spatial data, perform
-geospatial operations, and streamline data manipulation. To install
-these packages, open RStudio and run the following command in the
-Console:</p>
+essential R packages for geospatial analysis. Packages like <em>sf</em>,
+<em>terra</em>, and <em>dplyr</em> provide the tools needed to handle
+spatial data, perform geospatial operations, and streamline data
+manipulation. We also use package ggplot2 for visualization purpose. To
+install these packages, open RStudio and run the following command in
+the Console:</p>
 <pre class="r"><code># set CRAN mirror
 options(repos = c(CRAN = &quot;https://cran.rstudio.com/&quot;))
 
 # packages are only installed when necessary, avoiding repeated output
-packages &lt;- c(&quot;sf&quot;, &quot;terra&quot;, &quot;dplyr&quot;)
+packages &lt;- c(&quot;sf&quot;, &quot;terra&quot;, &quot;dplyr&quot;, &quot;ggplot2&quot;)
 installed_packages &lt;- rownames(installed.packages())
 missing_packages &lt;- packages[!(packages %in% installed_packages)]
 if(length(missing_packages)) install.packages(missing_packages, quiet = TRUE)</code></pre>
