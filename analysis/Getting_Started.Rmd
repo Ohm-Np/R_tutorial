@@ -1,5 +1,5 @@
 ---
-title: "Getting_Started"
+title: "Getting Started"
 author: "Om P Bhandari"
 date: "2024-12-24"
 output: html_document
@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+<style> p { text-align: justify; } </style>
 
 Before diving into geospatial analysis, it’s important to set up your working environment and familiarize yourself with the essential tools. This chapter will guide you through the process of installing R and RStudio, as well as the key packages required for handling geospatial data. You'll also learn about the basic structure of geospatial datasets and how to prepare your system for efficient analysis. By the end of this chapter, you’ll have everything in place to start working with vector and raster data in RStudio.
 
