@@ -513,15 +513,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree2c2603bee94d3091b139555f7109c22c64114e76targetblank2c2603ba">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree69eb64021d01c11fe464a9b8f1a97afe7c9775f5targetblank69eb640a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/2c2603bee94d3091b139555f7109c22c64114e76" target="_blank">2c2603b</a>
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/69eb64021d01c11fe464a9b8f1a97afe7c9775f5" target="_blank">69eb640</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree2c2603bee94d3091b139555f7109c22c64114e76targetblank2c2603ba"
+id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree69eb64021d01c11fe464a9b8f1a97afe7c9775f5targetblank69eb640a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +531,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/2c2603bee94d3091b139555f7109c22c64114e76" target="_blank">2c2603b</a>.
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/69eb64021d01c11fe464a9b8f1a97afe7c9775f5" target="_blank">69eb640</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -548,9 +548,6 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -596,6 +593,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/69eb64021d01c11fe464a9b8f1a97afe7c9775f5/analysis/Loading_Geospatial_Data_in_RStudio.Rmd" target="_blank">69eb640</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+<td>
+wflow_publish("analysis/Loading_Geospatial_Data_in_RStudio.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Ohm-Np/R_tutorial/c7cee438abde30017ba7d1c7dc44df42909dc05e/docs/Loading_Geospatial_Data_in_RStudio.html" target="_blank">c7cee43</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -671,6 +702,43 @@ Geodetic CRS:  WGS 84
 <pre class="r"><code># Lets plot the data to see how it looks
 plot(vector_data, main = &quot;Kanchanpur district (Nepal)&quot;)</code></pre>
 <p><img src="figure/Loading_Geospatial_Data_in_RStudio.Rmd/importing%20vector%20data-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-importing-vector-data-1">
+Past versions of "importing vector data-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-importing-vector-data-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/c7cee438abde30017ba7d1c7dc44df42909dc05e/docs/figure/Loading_Geospatial_Data_in_RStudio.Rmd/importing vector data-1.png" target="_blank">c7cee43</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>In this example, <strong>read_sf()</strong> reads the GeoPackage and
 loads into an <em>sf</em> object. The <em>sf</em> object contains both
 the geometric data (polygons in this case) and the any associated
@@ -694,7 +762,7 @@ href="https://github.com/Ohm-Np/R_tutorial/raw/refs/heads/master/data/raster/lan
 Cover 2015</a> &amp; <a
 href="https://github.com/Ohm-Np/R_tutorial/raw/refs/heads/master/data/raster/landcover_2019.tif">Land
 Cover 2019</a>.</p>
-<pre class="r"><code># Load the sf package
+<pre class="r"><code># Load the terra package
 library(terra)
 
 # Import your downloaded tif file
@@ -716,6 +784,43 @@ unit        :                                                          None </co
 <pre class="r"><code># Lets plot the data to see how it looks
 plot(raster_data)</code></pre>
 <p><img src="figure/Loading_Geospatial_Data_in_RStudio.Rmd/importing%20raster%20data-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-importing-raster-data-1">
+Past versions of "importing raster data-1.png"
+</button>
+</p>
+<div id="fig-no-spaces-importing-raster-data-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/c7cee438abde30017ba7d1c7dc44df42909dc05e/docs/figure/Loading_Geospatial_Data_in_RStudio.Rmd/importing raster data-1.png" target="_blank">c7cee43</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>In this example, rast() loads a raster file into a SpatRaster object.
 This object contains both the spatial grid (array of pixels) and the
 values for each pixel. The terra package makes it easier to manipulate
