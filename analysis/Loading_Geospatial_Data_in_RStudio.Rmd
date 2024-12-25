@@ -47,7 +47,7 @@ To load raster data using **terra**, you use the _rast()_ function. In this tuto
 
 ```{r importing raster data, message=FALSE, warning=FALSE, include=TRUE}
 
-# Load the sf package
+# Load the terra package
 library(terra)
 
 # Import your downloaded tif file
