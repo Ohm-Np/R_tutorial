@@ -1,8 +1,19 @@
 name: "R_tutorial"
 output_dir: ../docs
+development:
+  mode: auto
+template:
+  bootstrap: 5
+  bslib:
+    fg: "#032733"
+    bg: "#F7F8F9"
+    primary: "#1d7990"
+    link-color: "#008c8d"
+    link-hover-color: "#de9433"
 
 navbar:
   title: "Geospatial analysis with R"
+  bg: primary
   structure:
     left:
       - text: Home
@@ -17,6 +28,9 @@ navbar:
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/Ohm-Np/R_tutorial
+
+authors:
+  Om Prakash Bhandari:
 
 output:
   workflowr::wflow_html:
