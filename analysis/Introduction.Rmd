@@ -1,7 +1,5 @@
 ---
 title: "Introduction"
-author: "Om P Bhandari"
-date: "2024-12-23"
 output: html_document
 ---
 
