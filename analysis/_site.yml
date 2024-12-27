@@ -1,7 +1,9 @@
 name: "R_tutorial"
 output_dir: ../docs
+
 development:
   mode: auto
+
 template:
   bootstrap: 5
   bslib:
@@ -30,7 +32,7 @@ navbar:
       href: https://github.com/Ohm-Np/R_tutorial
 
 authors:
-  Om Prakash Bhandari:
+  Om Prakash Bhandari: ""
 
 output:
   workflowr::wflow_html:
@@ -38,5 +40,3 @@ output:
     toc_float: yes
     theme: cosmo
     highlight: textmate
-
-
