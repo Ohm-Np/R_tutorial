@@ -9,16 +9,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Om P Bhandari" />
 
-<meta name="date" content="2024-12-23" />
 
 <title>Introduction</title>
 
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -37,6 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -326,7 +326,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">R_tutorial</a>
+      <a class="navbar-brand" href="index.html">Geospatial Analysis with R</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -334,14 +334,19 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="How_To.html">How to?</a>
 </li>
 <li>
-  <a href="license.html">License</a>
+  <a href="Resources.html">Downloads</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/Ohm-Np/R_tutorial">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -352,8 +357,6 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Introduction</h1>
-<h4 class="author">Om P Bhandari</h4>
-<h4 class="date">2024-12-23</h4>
 
 </div>
 
@@ -382,7 +385,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-12-25
+<strong>Last updated:</strong> 2024-12-27
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -513,15 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree5bd8683e0a9676a02eaec58cdb49e045a4bd9fa1targetblank5bd8683a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree66f15efe9324aece0baa6d4e4fb143f9c19b2569targetblank66f15efa">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/5bd8683e0a9676a02eaec58cdb49e045a4bd9fa1" target="_blank">5bd8683</a>
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/66f15efe9324aece0baa6d4e4fb143f9c19b2569" target="_blank">66f15ef</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree5bd8683e0a9676a02eaec58cdb49e045a4bd9fa1targetblank5bd8683a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree66f15efe9324aece0baa6d4e4fb143f9c19b2569targetblank66f15efa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +534,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/5bd8683e0a9676a02eaec58cdb49e045a4bd9fa1" target="_blank">5bd8683</a>.
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/66f15efe9324aece0baa6d4e4fb143f9c19b2569" target="_blank">66f15ef</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -550,12 +553,14 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  analysis/Basic_Operations_with_Vector_Data.Rmd
+    Untracked:  analysis/Basic_Operations_with_Raster_Data.Rmd
+    Untracked:  analysis/Resources.Rmd
 
 Unstaged changes:
-    Modified:   analysis/Getting_Started.Rmd
     Modified:   analysis/Loading_Geospatial_Data_in_RStudio.Rmd
     Modified:   analysis/Understanding_Geospatial_Data.Rmd
+    Modified:   analysis/_site.yml
+    Deleted:    analysis/about.Rmd
 
 </code></pre>
 <p>
@@ -600,6 +605,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/66f15efe9324aece0baa6d4e4fb143f9c19b2569/analysis/Introduction.Rmd" target="_blank">66f15ef</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-27
+</td>
+<td>
+wflow_publish("analysis/Introduction.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Ohm-Np/R_tutorial/7e8410bdb479feb99e3f4d3aa2eb1e9b04104fb0/docs/Introduction.html" target="_blank">7e8410b</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
