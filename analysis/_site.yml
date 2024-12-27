@@ -14,25 +14,31 @@ template:
     link-hover-color: "#de9433"
 
 navbar:
-  title: "Geospatial analysis with R"
   bg: primary
   structure:
     left:
-      - text: Home
-        href: index.html
-      - text: About
-        href: about.html
-      - text: License
-        href: license.html
+      - home
+      - about
+      - license
     right:
       - github
   components:
+    home:
+      text: Geospatial Analysis with R
+      href: index.html
+    about:
+      text: About
+      href: about.html
+    license:
+      text: License
+      href: license.html
     github:
       icon: fab fa-github fa-lg
       href: https://github.com/Ohm-Np/R_tutorial
 
 authors:
-  Om Prakash Bhandari: ""
+  Om Prakash Bhandari:
+    href: "https://github.com/Ohm-Np"
 
 output:
   workflowr::wflow_html:
