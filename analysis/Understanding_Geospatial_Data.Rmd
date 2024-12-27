@@ -1,7 +1,5 @@
 ---
 title: "Understanding Geospatial Data"
-author: "Om P Bhandari"
-date: "2024-12-24"
 output: html_document
 ---
 
