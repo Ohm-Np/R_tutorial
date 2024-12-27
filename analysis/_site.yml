@@ -1,45 +1,14 @@
 name: "R_tutorial"
 output_dir: ../docs
-
-development:
-  mode: auto
-
-template:
-  bootstrap: 5
-  bslib:
-    fg: "#032733"
-    bg: "#F7F8F9"
-    primary: "#1d7990"
-    link-color: "#008c8d"
-    link-hover-color: "#de9433"
-
 navbar:
-  bg: primary
-  structure:
-    left:
-      - home
-      - about
-      - license
-    right:
-      - github
-  components:
-    home:
-      text: Geospatial Analysis with R
-      href: index.html
-    about:
-      text: About
-      href: about.html
-    license:
-      text: License
-      href: license.html
-    github:
-      icon: fab fa-github fa-lg
-      href: https://github.com/Ohm-Np/R_tutorial
-
-authors:
-  Om Prakash Bhandari:
-    href: "https://github.com/Ohm-Np"
-
+  title: "Geospatial Analysis with R"
+  left:
+  - text: Home
+    href: index.html
+  - text: About
+    href: about.html
+  - text: License
+    href: license.html
 output:
   workflowr::wflow_html:
     toc: yes
