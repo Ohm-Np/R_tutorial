@@ -1,17 +1,28 @@
 name: "R_tutorial"
 output_dir: ../docs
+
 navbar:
-  title: "R_tutorial"
-  left:
-  - text: Home
-    href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  title: "Geospatial analysis with R"
+  structure:
+    left:
+      - text: Home
+        href: index.html
+      - text: About
+        href: about.html
+      - text: License
+        href: license.html
+    right:
+      - github
+  components:
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/Ohm-Np/R_tutorial
+
 output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
     theme: cosmo
     highlight: textmate
+
+
