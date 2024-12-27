@@ -9,9 +9,9 @@ navbar:
     href: about.html
   - text: License
     href: license.html
-  right:
   - text: GitHub
-  - href: https://github.com/Ohm-Np/R_tutorial
+    href: https://github.com/Ohm-Np/R_tutorial
+
 output:
   workflowr::wflow_html:
     toc: yes
