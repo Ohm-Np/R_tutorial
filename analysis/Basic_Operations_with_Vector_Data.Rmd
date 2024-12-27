@@ -1,7 +1,5 @@
 ---
 title: "Basic Operations with Vector Data"
-author: "Om P Bhandari"
-date: "2024-12-25"
 output: html_document
 ---
 
