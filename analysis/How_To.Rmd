@@ -1,6 +1,10 @@
 ---
 title: "How to use this tutorial effectively?"
-output: html_document
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
 ---
 
 <style> p { text-align: justify; } </style>
