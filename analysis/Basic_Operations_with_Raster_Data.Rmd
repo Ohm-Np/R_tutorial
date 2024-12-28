@@ -1,0 +1,139 @@
+---
+title: "Basic Operations with Raster Data"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style> p { text-align: justify; } </style>
+
+Raster data represents continuous spatial information such as elevation, temperature, or land cover. The **terra** package provides efficient tools for working with raster data, allowing users to visualize, analyze, and manipulate raster layers. Few common operations include _plotting_, _reclassification_, _clipping_ and _masking_ among thers. These operations enable users to extract specific information and tailor raster datasets to their analysis needs.
+
+## **Plotting**
+
+Visualizing raster data is often the first step in understanding its structure and distribution. With terra, the plot() function can be used to quickly render raster layers. It creates intuitive visualizations, often with automatically chosen color palettes that reflect the range of values in the data. For this section, we will use ESA Land Cover raster data from year 2015, which can be downloaded by clicking [this link](https://github.com/Ohm-Np/R_tutorial/raw/refs/heads/master/data/raster/landcover_2015.tif).
+
+```{r plotting, message=FALSE, warning=FALSE, include=TRUE}
+
+# Load the terra package
+library(terra)
+
+# Import a raster dataset 
+lc_2015 <- 
+  rast("data/raster/landcover_2015.tif")
+
+# Plot the raster data
+plot(lc_2015,
+     main = "Raster Visualization")
+
+```
+
+As seen in the plot above, the cell values range from 20 to over 120.
+
+## **Clipping**
+
+Clipping a raster limits its extent to a specific area of interest. It helps reduce file size and ensures analysis is focused on relevant regions. In terra, clipping can be performed using the **crop()** function, which takes a raster and a bounding box or spatial object to define the extent.
+
+```{r clipping, message=FALSE, warning=FALSE, include=TRUE}
+
+# Import a sf object which you have already downloaded i.e. Sreepur gpkg
+library(sf)
+spr <- 
+  read_sf("data/vector/sreepur.gpkg")
+
+# Clip the raster
+lc_2015_crop <- 
+  terra::crop(lc_2015, spr)
+
+# Plot the clipped raster
+plot(lc_2015_crop,
+     main = "Clipped Raster")
+
+```
+
+## **Masking**
+
+Masking modifies a raster by setting values outside a specified region to NA. This operation is particularly useful for applying spatial masks, such as land polygons, to exclude unwanted areas like oceans. The **mask()** function achieves this by combining a raster and a spatial object (e.g., vector polygons).
+
+```{r masking, message=FALSE, warning=FALSE, include=TRUE}
+
+# Mask the raster
+lc_2015_mask <- 
+  terra::mask(lc_2015_crop,
+              spr)
+
+# Plot the clipped raster
+plot(lc_2015_mask,
+     main = "Masked Raster")
+
+```
+
+Masking helps refine raster datasets by focusing on specific areas or excluding irrelevant regions.
+
+## **Reclassification**
+
+Reclassification involves categorizing raster cell values into meaningful classes. For example, a raster of population count values can be reclassified into categories such as "Low," "Medium," and "High." And a raster of Land cover values can be reclassified into their original land cover type categories. The _classify()_ function in terra simplifies this process by applying specified rules to the raster.
+
+Before performing reclassification, we need to determine the exact values (min, max) of the raster. 
+
+```{r minmax, message=FALSE, warning=FALSE, include=TRUE}
+
+# determine minimum and maximum values from the masked raster
+terra::minmax(lc_2015_mask)[1:2, ]
+
+# determine the unique values in the raster, as each cell value in the land cover data represents a different land cover type
+table(unique(values(lc_2015_mask)))
+
+```
+
+As we can see, there are 10 different values within the masked raster, indicating that there are 10 distinct land cover types within the Sreepur polygon. 
+
+The ESA [Product User Manual](https://worldcover2020.esa.int/data/docs/WorldCover_PUM_V1.1.pdf) provides essential information on their data products, data values, and corresponding land cover types. For your convenience, I have listed all 23 discrete classes below.
+
+**20** - Shrubland, **30** - Grassland, **40** - Cropland, **50** - Built-up, **60** - Bare/Sparse Vegetation, **70** - Snow and Ice, **80** - Permanent Water Bodies, **90** - Herbaceous Wetland, **100** - Moss, **111** - Closed Forest Evergreen Needle Leaf, **112** - Closed Forest Evergreen Broad Leaf, **113** - Closed Forest Deciduous Needle Leaf, **114** - Closed Forest Deciduous Broad Leaf, **115** - Closed Forest Mixed, **116** - Closed Forest Unknown, **121** - Open Forest Evergreen Needle Leaf, **122** - Open Forest Evergreen Broad Leaf, **123** - Open Forest Deciduous Needle Leaf, **124** - Open Forest Deciduous Broad Leaf, **125** - Open Forest Mixed, **126** - Open Forest Unknown, **200** - Open Sea & **0** - Empty
+
+However, for this tutorial and our specific area of ineterst, we will use only the necessary classes and modify them for our convenience.
+
+```{r reclassify, message=FALSE, warning=FALSE, include=TRUE}
+
+# Reclassify raster values into new categories
+# Define reclassification rules: from-to, new value
+rules <- matrix(c(19, 21, 1,
+                  29, 31, 2,
+                  39, 41, 3, 
+                  49, 51, 4,
+                  59, 61, 5,
+                  89, 91, 6,
+                  113, 117, 7,
+                  123, 127, 8),
+                ncol = 3, byrow = TRUE)
+
+# Apply reclassification on masked raster
+reclassified_raster <- terra::classify(lc_2015_mask,
+                                       rules)
+
+# Convert the numeric raster to a factor (or character) with labels
+levels(reclassified_raster) <- data.frame(value = c(1, 2, 3, 4, 5, 6, 7, 8), 
+                                          label = c("Shrubland", "Grassland", "Cropland", "Built-Up",
+                                                    "Sparse Vegetation", "Herbaceous wetland", "Closed Forest", "Open Forest"))
+
+# Plot the reclassified raster
+plot(reclassified_raster, main = "Reclassified Raster")
+
+```
+
+Working with raster data often involves visualizing the dataset, reclassifying values into meaningful categories, and refining spatial coverage through clipping and masking. The terra package provides powerful tools to perform these operations efficiently. These capabilities allow users to tailor raster datasets to their specific analytical needs, enabling effective geospatial analysis.
+
+
+
+
+
+
+
+
+
+
+
+
