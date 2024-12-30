@@ -1,0 +1,79 @@
+---
+title: "Functions in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style> p { text-align: justify; } </style>
+
+Functions are blocks of code that perform a specific task in R. They allow us to encapsulate logic and reuse it across different parts of the code, making our scripts more modular, efficient, and easy to debug. Functions are one of the most powerful tools in R and are commonly used in data analysis, machine learning, and statistical programming.
+
+By using functions, we can:
+
+- Avoid repetitive code
+- Break complex tasks into smaller, manageable pieces
+- Improve readability and maintainability of your code
+
+## **Creating Functions in R**
+
+In R, a function is created using the **function()** keyword. The basic syntax for defining a function is:
+
+```{r syntax, message=FALSE, warning=FALSE, include=TRUE}
+
+my_function <- function(arg1, arg2) {
+  # function body
+  result <- arg1 + arg2
+  return(result)
+}
+```
+
+Here’s what each part means:
+
+- `my_function`: The name of the function.
+- `function(arg1, arg2)`: The definition of the function with its arguments.
+- `{}`: The body of the function where the logic is written.
+- `return(result)`: The value that is returned by the function.
+
+Example: 
+
+```{r example1, message=FALSE, warning=FALSE, include=TRUE}
+
+# A simple function to add two numbers
+add_numbers <- function(a, b) {
+  sum <- a + b
+  return(sum)
+}
+
+# Call the function
+add_numbers(5, 3)
+```
+
+## **Function with Multiple Arguments**
+
+Functions can have multiple arguments, and you can pass values in the form of position or by explicitly naming the arguments when calling the function.
+
+```{r example2, message=FALSE, warning=FALSE, include=TRUE}
+
+# A function to calculate the area of a rectangle
+rectangle_area <- function(length, width = 2) {  # Default value for width
+  area <- length * width
+  return(area)
+}
+
+# Call the function with default width
+rectangle_area(5)
+
+# Call the function with a specific width
+rectangle_area(5, 3)
+```
+
+In the above example, the argument width has a default value of 2. If you don't provide a value, R will use this default.
+
+
+
+
+
+
