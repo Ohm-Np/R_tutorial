@@ -516,15 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree1c127b54a1832a7a52ad8b5c73fc30fac53f5422targetblank1c127b5a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree2ba13d69e1956e7d08d28155c1673c912f29a79etargetblank2ba13d6a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/1c127b54a1832a7a52ad8b5c73fc30fac53f5422" target="_blank">1c127b5</a>
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/2ba13d69e1956e7d08d28155c1673c912f29a79e" target="_blank">2ba13d6</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree1c127b54a1832a7a52ad8b5c73fc30fac53f5422targetblank1c127b5a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree2ba13d69e1956e7d08d28155c1673c912f29a79etargetblank2ba13d6a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +534,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/1c127b54a1832a7a52ad8b5c73fc30fac53f5422" target="_blank">1c127b5</a>.
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/2ba13d69e1956e7d08d28155c1673c912f29a79e" target="_blank">2ba13d6</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -551,10 +551,6 @@ were generated:
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    data/export/
-
-Untracked files:
-    Untracked:  data/downloads/
 
 </code></pre>
 <p>
@@ -599,6 +595,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/2ba13d69e1956e7d08d28155c1673c912f29a79e/analysis/Functions.Rmd" target="_blank">2ba13d6</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-31
+</td>
+<td>
+wflow_publish("analysis/Functions.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Ohm-Np/R_tutorial/38b9de18785499c5fb8ef8046af105329d7ff295/docs/Functions.html" target="_blank">38b9de1</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -853,6 +883,115 @@ useful in batch processing.</li>
 <p>By leveraging these techniques, we can integrate data acquisition
 seamlessly into our R scripts, ensuring an efficient and organized
 workflow for geospatial projects.</p>
+</div>
+</div>
+</div>
+<div id="computation-functions" class="section level2">
+<h2><strong>Computation Functions</strong></h2>
+<p>In this section, we will create a function that computes zonal
+statistics based on the provided Area of Interest (AOI) and raster data.
+The <code>zonal_operation</code> function calculates zonal statistics
+for a given raster (spatial dataset) within a defined Area of Interest
+(AOI). It uses the <code>idcol</code> field to rasterize a polygon and
+then computes statistical summaries (like mean, sum, etc.) within each
+zone of the AOI.</p>
+<pre class="r"><code>zonal_operation &lt;- function(aoi = NULL,
+                            idcol = NULL,
+                            rast = NULL,
+                            opn = &quot;mean&quot;) {
+  
+  # Convert AOI (sf) to SpatVector
+  aoi_v &lt;- vect(aoi)
+  
+  # Crop the raster to the AOI extent
+  cropped_raster &lt;- crop(rast, aoi_v)
+  
+  # Mask the raster using the AOI
+  masked_raster &lt;- mask(cropped_raster, aoi_v)
+  
+  # Rasterize the polygon using the ID column
+  rasterized_aoi &lt;- rasterize(aoi_v, masked_raster, field = idcol)
+  
+  # Compute zonal statistics
+  zonal_stats &lt;- zonal(masked_raster, rasterized_aoi, fun = opn, na.rm = TRUE)
+  
+  # Return zonal statistics as a data frame
+  return(zonal_stats)
+  
+}</code></pre>
+<p>The function above takes four parameters:</p>
+<ul>
+<li><code>aoi</code>: The Area of Interest, typically a spatial polygon
+(e.g., a shapefile or spatial feature object).</li>
+<li><code>idcol</code>: The name of the column in the AOI data that will
+be used to create zones (for rasterization).</li>
+<li><code>rast</code>: The raster dataset on which zonal statistics will
+be computed.</li>
+<li><code>opn</code>: The operation to compute (e.g., “mean”, “sum”,
+etc.) over each zone. Default is “mean”.</li>
+</ul>
+<p>As an example, let’s compute the total population in the year 2020
+for different regions of Kanchanpur district.</p>
+<pre class="r"><code># Load required libraries
+library(sf)
+library(terra)
+
+# Load AOI polygon 
+zones &lt;- read_sf(&quot;data/vector/kanchanpur.gpkg&quot;)
+
+# Load population count raster from year 2020
+raster_data &lt;- rast(&quot;data/raster/popCount_2020.tif&quot;)
+
+# Set unique ID for the zonal operation
+unique_ID &lt;- &quot;NAME&quot;
+
+# Operation to compute
+method &lt;- &quot;sum&quot;
+
+# Call the function
+zonal_operation(aoi = zones,
+                idcol = unique_ID,
+                rast = raster_data,
+                opn = method)</code></pre>
+<pre><code>                 NAME npl_ppp_2020_UNadj
+1        BaisiBichawa         37900.0425
+2            Beldandi         46565.3564
+3            Chandani         72813.0097
+4              Daijee         49223.9277
+5         Dekhatbhuli         52221.7364
+6             Dodhara         64436.5646
+7             Jhalari         40823.8799
+8              Kalika         97216.4754
+9          Krishnapur         36368.5505
+10           Laxmipur        277108.9353
+11  MahendranagarN.P.         51835.0291
+12            Parasan         38199.8677
+13           Pipaladi         46773.8070
+14    RaikawarBichawa         44571.7505
+15     RampurBilaspur         48838.7719
+16     RauteliBichawa         11581.3578
+17 Royal Shuklaphanta           131.6414
+18         Shankarpur         19211.7471
+19            Sreepur         56755.7132
+20               Suda         58257.6391
+21     Tribhuwanbasti         37573.9453</code></pre>
+<p>In conclusion, mastering functions in R is essential for writing
+efficient, reusable, and organized code. Functions allow you to
+streamline complex tasks, avoid redundancy, and improve the readability
+and maintainability of your scripts. By understanding how to define and
+use functions, you can perform a wide range of data manipulation,
+statistical analysis, and visualization tasks more effectively. With the
+ability to build custom functions and leverage the vast array of
+built-in functions in R, you can significantly enhance your data
+analysis workflow, making your code more modular and adaptable to
+different challenges. Functions are a powerful tool that, once mastered,
+will elevate your R programming skills to the next level.</p>
+<p><strong>For this tutorial, this concludes the coverage of functions
+in R. If you would like to explore additional functions, examples, or
+need clarification on any of the steps covered, please visit the GitHub
+repository: <a
+href="https://github.com/Ohm-Np/R_tutorial">R_tutorial</a> and feel free
+to open an issue.</strong></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -881,22 +1020,22 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.7.1
+[1] terra_1.8-5     sf_1.0-19       workflowr_1.7.1
 
 loaded via a namespace (and not attached):
- [1] vctrs_0.6.5       httr_1.4.7        cli_3.6.3         knitr_1.48       
- [5] rlang_1.1.4       xfun_0.47         stringi_1.8.4     processx_3.8.4   
- [9] promises_1.3.0    jsonlite_1.8.8    glue_1.7.0        rprojroot_2.0.4  
-[13] git2r_0.33.0      htmltools_0.5.8.1 httpuv_1.6.15     ps_1.8.1         
-[17] sass_0.4.9        fansi_1.0.6       rmarkdown_2.28    jquerylib_0.1.4  
-[21] tibble_3.2.1      evaluate_0.24.0   fastmap_1.2.0     yaml_2.3.10      
-[25] lifecycle_1.0.4   whisker_0.4.1     stringr_1.5.1     compiler_4.4.0   
-[29] fs_1.6.4          pkgconfig_2.0.3   Rcpp_1.0.13       rstudioapi_0.16.0
-[33] later_1.3.2       digest_0.6.36     R6_2.5.1          utf8_1.2.4       
-[37] pillar_1.9.0      callr_3.7.6       magrittr_2.0.3    bslib_0.8.0      
-[41] tools_4.4.0       cachem_1.1.0      getPass_0.2-4    </code></pre>
-</div>
-</div>
+ [1] jsonlite_1.8.8     compiler_4.4.0     promises_1.3.0     Rcpp_1.0.13       
+ [5] stringr_1.5.1      git2r_0.33.0       callr_3.7.6        later_1.3.2       
+ [9] jquerylib_0.1.4    yaml_2.3.10        fastmap_1.2.0      R6_2.5.1          
+[13] classInt_0.4-10    knitr_1.48         tibble_3.2.1       units_0.8-5       
+[17] rprojroot_2.0.4    DBI_1.2.3          bslib_0.8.0        pillar_1.9.0      
+[21] rlang_1.1.4        utf8_1.2.4         cachem_1.1.0       stringi_1.8.4     
+[25] httpuv_1.6.15      xfun_0.47          getPass_0.2-4      fs_1.6.4          
+[29] sass_0.4.9         cli_3.6.3          magrittr_2.0.3     class_7.3-22      
+[33] ps_1.8.1           grid_4.4.0         digest_0.6.36      processx_3.8.4    
+[37] rstudioapi_0.16.0  lifecycle_1.0.4    vctrs_0.6.5        KernSmooth_2.23-22
+[41] proxy_0.4-27       evaluate_0.24.0    glue_1.7.0         whisker_0.4.1     
+[45] codetools_0.2-20   e1071_1.7-16       fansi_1.0.6        rmarkdown_2.28    
+[49] httr_1.4.7         tools_4.4.0        pkgconfig_2.0.3    htmltools_0.5.8.1 </code></pre>
 </div>
 </div>
 </div>
