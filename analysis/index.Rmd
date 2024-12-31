@@ -14,18 +14,18 @@ editor_options:
 
 Welcome to this comprehensive guide on geospatial analysis with RStudio! This tutorial is designed to help you get acquainted with RStudio, a powerful open-source tool for spatial data analysis. You'll learn how to work with both vector and raster data, perform essential geospatial operations, and create informative maps. Whether you’re just starting out or aiming to refine your geospatial skills, this resource will walk you through key techniques in data manipulation, visualization, and interactive mapping, giving you the skills you need to confidently work with spatial data in RStudio.
 
-## **_Table of contents_**
+## **_Chapters_**
 
-- [**Introduction**](Introduction.html)
+[**_1_. Introduction**](Introduction.html)
 
-- [**Getting Started**](Getting_Started.html)
+[**_2_. Getting Started**](Getting_Started.html)
 
-- [**Understanding Geospatial Data**](Understanding_Geospatial_Data.html)
+[**_3_. Understanding Geospatial Data**](Understanding_Geospatial_Data.html)
 
-- [**Loading Geospatial Data in RStudio**](Loading_Geospatial_Data_in_RStudio.html)
+[**_4_. Loading Geospatial Data in RStudio**](Loading_Geospatial_Data_in_RStudio.html)
 
-- [**Basic Operations with Vector Data**](Basic_Operations_with_Vector_Data.html)
+[**_5_. Basic Operations with Vector Data**](Basic_Operations_with_Vector_Data.html)
 
-- [**Basic Operations with Raster Data**](Basic_Operations_with_Raster_Data.html)
+[**_6_. Basic Operations with Raster Data**](Basic_Operations_with_Raster_Data.html)
 
-- [**Functions in R**](Functions.html)
+[**_7_. Functions in R**](Functions.html)
