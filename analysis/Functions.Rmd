@@ -203,4 +203,80 @@ Advantages of Automating Downloads:
 
 By leveraging these techniques, we can integrate data acquisition seamlessly into our R scripts, ensuring an efficient and organized workflow for geospatial projects.
 
+## **Computation Functions**
+
+In this section, we will create a function that computes zonal statistics based on the provided Area of Interest (AOI) and raster data. The `zonal_operation` function calculates zonal statistics for a given raster (spatial dataset) within a defined Area of Interest (AOI). It uses the `idcol` field to rasterize a polygon and then computes statistical summaries (like mean, sum, etc.) within each zone of the AOI.
+
+```{r zonal, message=FALSE, warning=FALSE, include=TRUE}
+
+zonal_operation <- function(aoi = NULL,
+                            idcol = NULL,
+                            rast = NULL,
+                            opn = "mean") {
+  
+  # Convert AOI (sf) to SpatVector
+  aoi_v <- vect(aoi)
+  
+  # Crop the raster to the AOI extent
+  cropped_raster <- crop(rast, aoi_v)
+  
+  # Mask the raster using the AOI
+  masked_raster <- mask(cropped_raster, aoi_v)
+  
+  # Rasterize the polygon using the ID column
+  rasterized_aoi <- rasterize(aoi_v, masked_raster, field = idcol)
+  
+  # Compute zonal statistics
+  zonal_stats <- zonal(masked_raster, rasterized_aoi, fun = opn, na.rm = TRUE)
+  
+  # Return zonal statistics as a data frame
+  return(zonal_stats)
+  
+}
+```
+
+The function above takes four parameters:
+
+- `aoi`: The Area of Interest, typically a spatial polygon (e.g., a shapefile or spatial feature object).
+- `idcol`: The name of the column in the AOI data that will be used to create zones (for rasterization).
+- `rast`: The raster dataset on which zonal statistics will be computed.
+- `opn`: The operation to compute (e.g., "mean", "sum", etc.) over each zone. Default is "mean".
+
+As an example, let's compute the total population in the year 2020 for different regions of Kanchanpur district.
+
+```{r compute, message=FALSE, warning=FALSE, include=TRUE}
+
+# Load required libraries
+library(sf)
+library(terra)
+
+# Load AOI polygon 
+zones <- read_sf("data/vector/kanchanpur.gpkg")
+
+# Load population count raster from year 2020
+raster_data <- rast("data/raster/popCount_2020.tif")
+
+# Set unique ID for the zonal operation
+unique_ID <- "NAME"
+
+# Operation to compute
+method <- "sum"
+
+# Call the function
+zonal_operation(aoi = zones,
+                idcol = unique_ID,
+                rast = raster_data,
+                opn = method)
+
+```
+
+In conclusion, mastering functions in R is essential for writing efficient, reusable, and organized code. Functions allow you to streamline complex tasks, avoid redundancy, and improve the readability and maintainability of your scripts. By understanding how to define and use functions, you can perform a wide range of data manipulation, statistical analysis, and visualization tasks more effectively. With the ability to build custom functions and leverage the vast array of built-in functions in R, you can significantly enhance your data analysis workflow, making your code more modular and adaptable to different challenges. Functions are a powerful tool that, once mastered, will elevate your R programming skills to the next level.
+
+**For this tutorial, this concludes the coverage of functions in R. If you would like to explore additional functions, examples, or need clarification on any of the steps covered, please visit the GitHub repository: [R_tutorial](https://github.com/Ohm-Np/R_tutorial) and feel free to open an issue.**
+
+
+
+
+
+
 
