@@ -72,8 +72,135 @@ rectangle_area(5, 3)
 
 In the above example, the argument width has a default value of 2. If you don't provide a value, R will use this default.
 
+## **Downloading Geospatial Data in R**
+
+In geospatial analysis, it is often necessary to obtain datasets from online sources for analysis. R provides a straightforward way to automate the process of downloading data from URLs and saving it to a specific path on your local machine. This can save time, ensure consistency, and allow seamless integration of data acquisition into oour analysis workflows.
+
+### **Using the `download.file()` Function**
+
+```{r download1, message=FALSE, warning=FALSE, include=TRUE}
+
+# URL of the GADM data of San Marino
+url <- "https://geodata.ucdavis.edu/gadm/gadm4.1/gpkg/gadm41_SMR.gpkg"
+
+# Destination path to save the file
+# provide the path where you want to save the geopackage and also change the name of the file
+destfile <- "data/downloads/gadm41_SMR.gpkg"
+
+# Download the file
+download.file(url,
+              destfile)
+
+```
 
 
+### **Automating Data Download**
 
+To simplify the process, we can wrap this functionality into a custom function that takes a URL and destination path as arguments. This can be particularly useful when managing multiple datasets.
+
+#### **Download one file at a time**
+
+In this subsection, we will create a function to download country-specific GeoPackage data from the GADM website.
+
+```{r automated, message=FALSE, warning=FALSE, include=TRUE}
+
+get_gadm <- function(iso3 = NULL,
+                     path = NULL) {
+      
+      # Construct the URL of the GADM data
+      url <- 
+        paste0("https://geodata.ucdavis.edu/gadm/gadm4.1/gpkg/gadm41_", iso3, ".gpkg")
+      # Destination path to save the file
+      destfile <- 
+        paste0(path, "/", iso3, ".gpkg")
+      # Download the file
+      download.file(url,
+                    destfile)
+      # print message
+      message("Download process completed.")
+}
+```
+
+Now, we created a function named **get_gadm()** that takes the `ISO3` code of the country of interest and the destination file `path` as arguments. We will use this function to download the GeoPackage containing the country polygon. Please ensure that you provide a valid ISO3 code and a proper file path to download the polygons; otherwise, a download error will occur.
+
+```{r download2, message=TRUE, warning=FALSE, include=TRUE}
+
+# Example 1: Luxembourg
+iso3 = "LUX"
+path = "data/downloads/"
+get_gadm(iso3, path)
+
+
+# Example 2: Cyprus
+get_gadm(iso3 = "CYP",
+         path = "data/downloads/")
+
+```
+
+#### **Multiple files downloading simultaneously**
+
+In this subsection, we will create a function to download GADM data for multiple countries simultaneously.
+
+```{r automated2, message=FALSE, warning=FALSE, include=TRUE}
+
+gadm_downloader <- function(iso3 = NULL,
+                            path = NULL) {
+  
+  # Loop through each ISO3 code
+  for (code in iso3) {
+    
+    # Construct the URL
+    url <- paste0("https://geodata.ucdavis.edu/gadm/gadm4.1/gpkg/gadm41_", code, ".gpkg")
+    # Destination path to save the file
+    destfile <- 
+      file.path(path, paste0(code, ".gpkg"))
+    
+    # Download the file
+    message("Downloading GADM data for country: ", code)
+    
+    tryCatch({
+      
+      download.file(url, destfile)
+      message("File for ", code, " downloaded successfully.")
+      
+    }, 
+    error = function(e) {
+      message("Failed to download file for ", code, ": ", e$message)
+    })
+  }
+  
+  message("Download process completed.")
+}
+
+```
+
+Key Features of the Updated Function:
+
+- Handles Multiple Countries: Accepts a vector of ISO3 codes and processes them iteratively.
+- Error Handling: Uses tryCatch to gracefully handle download failures and continue with the next country.
+- Informative Messages: Provides feedback during the download process for each country.
+
+```{r download3, message=TRUE, warning=FALSE, include=TRUE}
+
+# Example 3: Cyprus, San Marino, Luxembourg
+# Define ISO3 codes and path
+iso3_codes <- 
+  c("CYP", "LUX", "SMR")
+# Define output file path
+output_path <- 
+  "data/downloads/"
+
+# Call the function
+gadm_downloader(iso3 = iso3_codes,
+                path = output_path)
+
+```
+Advantages of Automating Downloads:
+
+- Efficiency: Automates the tedious process of manually downloading files.
+- Reproducibility: Ensures that analyses can be reproduced with the same datasets.
+- Scalability: Handles multiple datasets with ease, particularly useful in batch processing.
+
+By leveraging these techniques, we can integrate data acquisition seamlessly into our R scripts, ensuring an efficient and organized workflow for geospatial projects.
 
 
