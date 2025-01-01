@@ -1,0 +1,159 @@
+---
+title: "Data Frames in R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style> p { text-align: justify; } </style>
+
+## **What is a Data Frame?**
+
+Data frames are a cornerstone of data manipulation and analysis in R, designed for handling tabular data efficiently. They are two-dimensional, rectangular structures where rows represent observations and columns represent variables. Each column is a vector of equal length, allowing for the storage of mixed data types such as numerical, character, or logical values. Analogous to spreadsheets or SQL tables, data frames are indispensable in tasks like statistical analysis, data visualization, and machine learning.
+
+Key characteristics of data frames:
+
+- Columns can contain different data types (e.g., numeric, character, factor).
+- Rows represent individual observations or cases.
+- Data frames can hold large datasets efficiently.
+
+## **Creating Data Frames**
+
+We can create a data frame in R using the `data.frame()` function from base R. Here's an example:
+
+```{r create_df, message=FALSE, warning=FALSE, include=TRUE}
+
+# Creating a data frame
+students <- data.frame(
+  Name = c("Amrit", "Ishwor", "Indra", "Rakshya"),
+  Age = c(27, 24, 21, 25),
+  Grade = c("A", "B", "A", "B"),
+  Major = c("Maths", "Science", "Maths", "Science")
+)
+
+# Display the data frame
+print(students)
+
+```
+
+## **Accessing and Modifying Data**
+
+#### **Selecting Rows and Columns**
+
+We can access elements of a data frame using indexing, column names, or logical conditions.
+
+```{r access, message=FALSE, warning=FALSE, include=TRUE}
+
+# Access a specific column
+students$Name
+
+# Access a specific row
+students[1, ]
+
+# Access a specific value
+students[2, "Grade"]
+
+```
+
+#### **Adding and Removing Columns**
+
+We can add a new column to a data frame dynamically or remove an existing column.
+
+```{r modify, message=FALSE, warning=FALSE, include=TRUE}
+
+# Adding a new column
+students$Passed <- c(TRUE, FALSE, TRUE, FALSE)
+# Display the data frame
+print(students)
+
+# Removing a column
+students$Grade <- NULL
+# Display the data frame
+print(students)
+
+```
+
+## **Data Frame Operations**
+
+#### **Filtering and Subsetting**
+
+We can filter rows based on conditions using logical operators.
+
+```{r filter, message=FALSE, warning=FALSE, include=TRUE}
+
+# Filter students with Age > 22
+students[students$Age > 22, ]
+```
+
+#### **Sorting and Reordering**
+
+Sorting a data frame is straightforward with the `order()` function.
+
+```{r reorder, message=FALSE, warning=FALSE, include=TRUE}
+
+# Sort by Age
+students <- students[order(students$Age), ]
+# Display the data frame
+print(students)
+
+```
+
+#### **Summary and Statistical Functions**
+
+R provides built-in functions to summarize and analyze data frames.
+
+```{r summary, message=FALSE, warning=FALSE, include=TRUE}
+
+# Summary statistics
+summary(students)
+
+# Number of rows and columns
+nrow(students)
+ncol(students)
+
+```
+
+#### **Aggregation and Grouping**
+
+The `dplyr` package functions enable grouping and summarization.
+
+```{r group, message=FALSE, warning=FALSE, include=TRUE}
+
+# Load dplyr package
+library(dplyr)
+
+# grouping
+students %>%
+  group_by(Major) %>%
+  summarise(Average_Age = mean(Age))
+
+```
+
+So far, this chapter has introduced you to the versatility and power of data frames in R, laying the foundation for data manipulation and analysis. Now, we will delve into data frames specifically designed for geospatial data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
