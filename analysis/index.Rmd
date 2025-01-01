@@ -29,3 +29,5 @@ Welcome to this comprehensive guide on geospatial analysis with RStudio! This tu
 [**_6_. Basic Operations with Raster Data**](Basic_Operations_with_Raster_Data.html)
 
 [**_7_. Functions in R**](Functions.html)
+
+[**_8_. Data Frames in R**](Data_Frames.html)
