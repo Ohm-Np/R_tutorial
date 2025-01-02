@@ -347,7 +347,7 @@ head(long_format)
 
 - `st_drop_geometry()`: Temporarily removes geometry to focus on tabular operations.
 
-### **Visualizing**
+### **Visualization**
 
 Use the `plot()` function for a quick visualization:
 
@@ -523,7 +523,7 @@ plot(r_classified, main = "Reclassification (2020)")
 
 ```
 
-### **Visualizing**
+### **Visualization**
 
 To plot multiple rasters side by side in R, you can use the `terra` package with `par()` to set up a grid of plots. Here's an example using the terra package and base R plotting:
 
