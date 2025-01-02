@@ -127,6 +127,19 @@ plot(reclassified_raster, main = "Reclassified Raster")
 
 Working with raster data often involves visualizing the dataset, reclassifying values into meaningful categories, and refining spatial coverage through clipping and masking. The terra package provides powerful tools to perform these operations efficiently. These capabilities allow users to tailor raster datasets to their specific analytical needs, enabling effective geospatial analysis.
 
+## **Saving Data to File**
+
+We can use the `writeRaster()` function from the `terra` package to save raster data to a file.
+
+```{r export, message=FALSE, warning=FALSE, include=TRUE}
+
+# Save reclassified raster data as a GeoTIFF file
+terra::writeRaster(reclassified_raster,
+                   "data/raster/reclassified.tif",
+                   overwrite = TRUE)
+```
+
+
 ## **Zonal statistics**
 
 Zonal statistics is a technique in spatial analysis used to summarize raster values within specified zones, defined by a vector dataset (e.g., polygons). This operation is essential for combining raster data (e.g., elevation, land cover) with vector zones (e.g., administrative boundaries, land parcels). 
