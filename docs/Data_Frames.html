@@ -516,15 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtreec7a11f6903ab63e3975a10d3ae3e0763b8d05feetargetblankc7a11f6a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtreebb5cb61081924357d590d1805c12cf8df6077bc6targetblankbb5cb61a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/c7a11f6903ab63e3975a10d3ae3e0763b8d05fee" target="_blank">c7a11f6</a>
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/bb5cb61081924357d590d1805c12cf8df6077bc6" target="_blank">bb5cb61</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtreec7a11f6903ab63e3975a10d3ae3e0763b8d05feetargetblankc7a11f6a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtreebb5cb61081924357d590d1805c12cf8df6077bc6targetblankbb5cb61a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +534,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/c7a11f6903ab63e3975a10d3ae3e0763b8d05fee" target="_blank">c7a11f6</a>.
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/bb5cb61081924357d590d1805c12cf8df6077bc6" target="_blank">bb5cb61</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -595,6 +595,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/bb5cb61081924357d590d1805c12cf8df6077bc6/analysis/Data_Frames.Rmd" target="_blank">bb5cb61</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+<td>
+wflow_publish("analysis/Data_Frames.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Ohm-Np/R_tutorial/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/Data_Frames.html" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1215,18 +1249,92 @@ head(long_format)</code></pre>
 focus on tabular operations.</li>
 </ul>
 </div>
-<div id="visualizing" class="section level3">
-<h3><strong>Visualizing</strong></h3>
+<div id="visualization" class="section level3">
+<h3><strong>Visualization</strong></h3>
 <p>Use the <code>plot()</code> function for a quick visualization:</p>
 <pre class="r"><code>plot(kpr[&quot;density&quot;],
      main = &quot;Population Density&quot;)</code></pre>
-<p><img src="figure/Data_Frames.Rmd/sf_plot-1.png" width="672" style="display: block; margin: auto;" />
-For advanced visualization:</p>
+<p><img src="figure/Data_Frames.Rmd/sf_plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sf_plot-1">
+Past versions of sf_plot-1.png
+</button>
+</p>
+<div id="fig-sf_plot-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sf_plot-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>For advanced visualization:</p>
 <pre class="r"><code>ggplot(kpr) +
   geom_sf(aes(fill = density)) +
   labs(title = &quot;Population Density by Region&quot;, fill = &quot;Density&quot;) +
   theme_minimal()</code></pre>
 <p><img src="figure/Data_Frames.Rmd/sf_plot2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sf_plot2-1">
+Past versions of sf_plot2-1.png
+</button>
+</p>
+<div id="fig-sf_plot2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sf_plot2-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="spatraster-object" class="section level2">
@@ -1258,6 +1366,43 @@ values(r) &lt;-
 plot(r, 
      main = &quot;SpatRaster&quot;)</code></pre>
 <p><img src="figure/Data_Frames.Rmd/sr_convert-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sr_convert-1">
+Past versions of sr_convert-1.png
+</button>
+</p>
+<div id="fig-sr_convert-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sr_convert-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># Convert to data frame
 df &lt;- as.data.frame(r, na.rm = FALSE)
 head(df)</code></pre>
@@ -1311,6 +1456,43 @@ r &lt;-
 plot(r,
      main = &quot;Population Count - SpatRaster&quot;)</code></pre>
 <p><img src="figure/Data_Frames.Rmd/sr_load-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sr_load-1">
+Past versions of sr_load-1.png
+</button>
+</p>
+<div id="fig-sr_load-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sr_load-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>We can calculate basic summary statistics (mean, median, min, max) to
 get an overview of the population distribution across the region.</p>
 <p><em><strong>Example 1</strong>: Summarize Population Count</em></p>
@@ -1357,6 +1539,43 @@ head(coordinates_high_density)</code></pre>
 plot(coordinates_high_density,
      main = &quot;High Density Regions&quot;)</code></pre>
 <p><img src="figure/Data_Frames.Rmd/sr_identify-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sr_identify-1">
+Past versions of sr_identify-1.png
+</button>
+</p>
+<div id="fig-sr_identify-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sr_identify-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="classify-raster-data" class="section level3">
 <h3><strong>Classify Raster Data</strong></h3>
@@ -1406,9 +1625,46 @@ summary(values(population_change))</code></pre>
 <pre class="r"><code># View the reclassified raster
 plot(r_classified, main = &quot;Reclassification (2020)&quot;)</code></pre>
 <p><img src="figure/Data_Frames.Rmd/sr_change-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sr_change-1">
+Past versions of sr_change-1.png
+</button>
+</p>
+<div id="fig-sr_change-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sr_change-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="visualizing-1" class="section level3">
-<h3><strong>Visualizing</strong></h3>
+</div>
+</div>
+<div id="visualization-1" class="section level3">
+<h3><strong>Visualization</strong></h3>
 <p>To plot multiple rasters side by side in R, you can use the
 <code>terra</code> package with <code>par()</code> to set up a grid of
 plots. Here’s an example using the terra package and base R
@@ -1424,6 +1680,43 @@ plot(population_change, main = &quot;Population Change&quot;)
 # Reset the plotting layout to default (1 plot)
 par(mfrow = c(1, 1))</code></pre>
 <p><img src="figure/Data_Frames.Rmd/sr_plot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-sr_plot-1">
+Past versions of sr_plot-1.png
+</button>
+</p>
+<div id="fig-sr_plot-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/38ca5cccefabfdff8113ab5c7197ca94bb10ddc0/docs/figure/Data_Frames.Rmd/sr_plot-1.png" target="_blank">38ca5cc</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>These are just a few ways you can manipulate raster data for insights
 into population distribution. The flexibility of raster data combined
 with tabular operations makes it a powerful tool for spatial and
