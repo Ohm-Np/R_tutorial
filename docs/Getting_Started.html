@@ -385,7 +385,7 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2024-12-27
+<strong>Last updated:</strong> 2025-01-02
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -516,15 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree479d00788fc3f5e79cf73cf32fd9d809922e7f91targetblank479d007a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtreef0d8901543331ea1bb593d12865f4b0d62840bdctargetblankf0d8901a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/479d00788fc3f5e79cf73cf32fd9d809922e7f91" target="_blank">479d007</a>
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/f0d8901543331ea1bb593d12865f4b0d62840bdc" target="_blank">f0d8901</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtree479d00788fc3f5e79cf73cf32fd9d809922e7f91targetblank479d007a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomOhmNpRtutorialtreef0d8901543331ea1bb593d12865f4b0d62840bdctargetblankf0d8901a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -534,7 +534,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/Ohm-Np/R_tutorial/tree/479d00788fc3f5e79cf73cf32fd9d809922e7f91" target="_blank">479d007</a>.
+<a href="https://github.com/Ohm-Np/R_tutorial/tree/f0d8901543331ea1bb593d12865f4b0d62840bdc" target="_blank">f0d8901</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -552,17 +552,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  analysis/Basic_Operations_with_Raster_Data.Rmd
-    Untracked:  analysis/How_To.Rmd
-    Untracked:  analysis/Resources.Rmd
-
 Unstaged changes:
-    Modified:   analysis/Introduction.Rmd
-    Modified:   analysis/Loading_Geospatial_Data_in_RStudio.Rmd
-    Modified:   analysis/Understanding_Geospatial_Data.Rmd
-    Modified:   analysis/_site.yml
-    Deleted:    analysis/about.Rmd
+    Modified:   analysis/Data_Frames.Rmd
 
 </code></pre>
 <p>
@@ -607,6 +598,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/Ohm-Np/R_tutorial/blob/f0d8901543331ea1bb593d12865f4b0d62840bdc/analysis/Getting_Started.Rmd" target="_blank">f0d8901</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2025-01-02
+</td>
+<td>
+wflow_publish("analysis/Getting_Started.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/Ohm-Np/R_tutorial/f74fd19a8f23cc0bf60d719c68bbea12f5a61f5b/docs/Getting_Started.html" target="_blank">f74fd19</a>
+</td>
+<td>
+Ohm-Np
+</td>
+<td>
+2024-12-27
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -795,7 +820,7 @@ the Console:</p>
 options(repos = c(CRAN = &quot;https://cran.rstudio.com/&quot;))
 
 # packages are only installed when necessary, avoiding repeated output
-packages &lt;- c(&quot;sf&quot;, &quot;terra&quot;, &quot;dplyr&quot;, &quot;ggplot2&quot;)
+packages &lt;- c(&quot;sf&quot;, &quot;terra&quot;, &quot;dplyr&quot;, &quot;ggplot2&quot;, &quot;tidyr&quot;)
 installed_packages &lt;- rownames(installed.packages())
 missing_packages &lt;- packages[!(packages %in% installed_packages)]
 if(length(missing_packages)) install.packages(missing_packages, quiet = TRUE)</code></pre>
