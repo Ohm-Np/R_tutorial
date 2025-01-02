@@ -133,27 +133,98 @@ students %>%
 
 So far, this chapter has introduced you to the versatility and power of data frames in R, laying the foundation for data manipulation and analysis. Now, we will delve into data frames specifically designed for geospatial data.
 
+## **Geospatial Data Frames**
 
+A Geospatial Data Frame (*GDF*) extends a standard data frame by including a geometry column, which stores spatial data in formats such as points, lines, and polygons. This integration of spatial and attribute data makes geospatial data frames ideal for spatial analysis and mapping.
 
+The `sf` package represents geospatial data frames as `sf` objects, offering seamless compatibility with other R packages for geospatial and statistical analysis.
 
+Geometry is central to geospatial data frames, defining the spatial features associated with each observation. Each row corresponds to a spatial feature with related attributes, and the geometry column typically stores spatial data in Well-Known Text (WKT) or binary format.
 
+### **Creating GDF**
 
+You can create a geospatial data frame using the st_as_sf() function from the sf package. Here's an example:
 
+```{r sp_create, message=FALSE, warning=FALSE, include=TRUE}
 
+library(sf)
 
+# Create a data frame with spatial data
+data <- data.frame(
+  Name = c("Point A", "Point B", "Point C"),
+  Latitude = c(27.7, 28.2, 26.9),
+  Longitude = c(85.3, 84.9, 83.8)
+)
 
+# Convert to an sf object
+geo_data <- st_as_sf(
+  data,
+  coords = c("Longitude", "Latitude"),
+  crs = 4326  # WGS 84 Coordinate Reference System
+)
 
+print(geo_data)
+```
 
+### **Manipulating GDF**
 
+#### **Spatial Queries**
 
+Geospatial data frames support operations like spatial filtering and proximity analysis.
 
+```{r sp_query, message=FALSE, warning=FALSE, include=TRUE}
 
+# Define a bounding box and convert it to an sfc object
+bbox <- st_bbox(c(xmin = 84, ymin = 27, xmax = 86, ymax = 29),
+                crs = st_crs(geo_data))
+bbox_polygon <- 
+  st_as_sfc(bbox)
 
+# Filter points within a specific bounding box
+filtered_data <- 
+  geo_data[st_within(geo_data,
+                     bbox_polygon,
+                     sparse = FALSE),
+           ]
 
+print(filtered_data)
+```
 
+#### **Attribute-Based Operations**
 
+Just like standard data frames, we can manipulate attributes in geospatial data frames.
 
+```{r sp_attribute, message=FALSE, warning=FALSE, include=TRUE}
 
+# Add a new column
+geo_data$Elevation <- 
+  c(1500, 2000, 1700)
 
+print(geo_data)
+```
 
+#### **Visualization of GDF**
 
+Geospatial data frames can be visualized using the `plot()` function from the `sf` package or integrated with advanced visualization libraries such as `ggplot2`.
+
+```{r sp_viz, message=FALSE, warning=FALSE, include=TRUE}
+
+plot(geo_data["Name"],
+     main = "Geospatial Data Points")
+```
+
+For enhanced visualization, we can use `geom_sf()` in ggplot2.
+
+```{r sp_viz2, message=FALSE, warning=FALSE, include=TRUE}
+
+library(ggplot2)
+
+ggplot(data = geo_data) +
+  geom_sf(aes(color = Name), size = 3) +
+  labs(title = "Geospatial Data Points") +
+  theme_minimal()
+```
+
+This approach allows you to set individual colors based on the Name attribute or other properties and provides more control over styling.
+
+Geospatial data frames bridge the gap between tabular data and spatial analysis, making them indispensable for modern geospatial workflows. Their versatility, combined with R’s ecosystem of geospatial packages, provides an efficient and intuitive way to analyze and visualize spatial data.
