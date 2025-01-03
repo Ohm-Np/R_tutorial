@@ -31,3 +31,5 @@ Welcome to this comprehensive guide on geospatial analysis with RStudio! This tu
 [**_7_. Functions in R**](Functions.html)
 
 [**_8_. Data Frames in R**](Data_Frames.html)
+
+[**_9_. Interactive Visualizations**](Interactive_Maps.html)
