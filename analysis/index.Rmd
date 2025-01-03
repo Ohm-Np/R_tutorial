@@ -36,4 +36,4 @@ Welcome to this comprehensive guide on geospatial analysis with RStudio! This tu
 
 [**Exercises**](Exercises.html)
 
-[**Additional Resources**](Resources.html)
+[**Additional Resources**](Additional_Resources.html)
